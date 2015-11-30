@@ -1,0 +1,15 @@
+ethereum-data:
+  container_name: ethereum-data
+  image: ubuntu:wily
+  volumes:
+    - .:/root/
+  command:
+ethereum-miner:
+  container_name: ethereum-miner
+  image: tutum.co/elysianempire/ethereum-miner
+  volumes_from:
+    - ethereum-data
+  ports:
+    - "30303:30303"
+    - "8545:8545"
+  command: geth --rpc
