@@ -17,11 +17,17 @@ RUN apt-get update \
 EXPOSE 8545
 EXPOSE 30303
 
-ENV HOME /root/
+ENV HOME /home/ethereum/
+ENV ETHEREUM_ACCOUNT_PASSWORD ethereum
+
 WORKDIR ${HOME}
 
-#RUN groupadd -r ethereum \
-#	&& useradd -r -g ethereum ethereum \
-#	&& chown -R ethereum ${HOME}
+RUN groupadd -r ethereum \
+	&& useradd -r -g ethereum ethereum \
+	&& chown -R ethereum ${HOME}
 
-#USER ethereum
+USER ethereum
+
+RUN echo $ETHEREUM_ACCOUNT_PASSWORD > .passwd \
+	&& geth --password .passwd account new \
+	&& rm .passwd
