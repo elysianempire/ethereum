@@ -28,6 +28,8 @@ RUN groupadd -r ethereum \
 
 USER ethereum
 
+# This is suppose to work
+#RUN geth --password <(echo $PASSWORD) account new
 RUN echo $PASSWORD > .passwd \
 	&& geth --password .passwd account new \
 	&& rm .passwd
