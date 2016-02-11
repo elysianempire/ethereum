@@ -3,6 +3,8 @@ module.exports = function(grunt) {
 
     var shell;
 
+    // FYI This is the command to run the container interactively
+    // docker run -it --rm tutum.co/elysianempire/ethereum-miner
     grunt.loadNpmTasks('grunt-shell');
     shell = {
         'docker-init': {
