@@ -11,4 +11,4 @@ ethereum-miner:
   ports:
     - "30303:30303"
     - "8545:8545"
-  command: geth --rpc
+  command: geth --rpc --rpcaddr "0.0.0.0"
