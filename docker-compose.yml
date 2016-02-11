@@ -6,8 +6,6 @@
 ethereum-miner:
   container_name: ethereum-miner
   image: tutum.co/elysianempire/ethereum-miner
-  environment:
-    - ETHEREUM_ACCOUNT_PASSWORD=ethereum
 #  volumes_from:
 #    - ethereum-data
   ports:

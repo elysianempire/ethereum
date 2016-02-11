@@ -18,7 +18,7 @@ EXPOSE 8545
 EXPOSE 30303
 
 ENV HOME /home/ethereum/
-ENV ETHEREUM_ACCOUNT_PASSWORD ethereum
+ARG PASSWORD
 
 WORKDIR ${HOME}
 
@@ -28,6 +28,6 @@ RUN groupadd -r ethereum \
 
 USER ethereum
 
-RUN echo $ETHEREUM_ACCOUNT_PASSWORD > .passwd \
+RUN echo $PASSWORD > .passwd \
 	&& geth --password .passwd account new \
 	&& rm .passwd

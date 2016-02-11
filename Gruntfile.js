@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             command: 'docker-compose stop'
         },
         'build-lib': {
-            command: 'docker build -t tutum.co/elysianempire/ethereum-miner .'
+            command: 'docker build --build-arg PASSWORD=ethereum -t tutum.co/elysianempire/ethereum-miner .'
         },
         'docker-kill-all': {
             command: 'docker rm --force `docker ps -qa`'
