@@ -18,7 +18,9 @@ EXPOSE 8545
 EXPOSE 30303
 
 ENV HOME /home/ethereum/
-ARG PASSWORD=ethereum
+# Not working till Docker Hub is on 1.9
+#ARG PASSWORD ethereum
+ENV PASSWORD ethereum
 
 WORKDIR ${HOME}
 
