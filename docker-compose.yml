@@ -1,3 +1,7 @@
+# To build the image, use this command
+# docker build --build-arg PASSWORD=ethereum -t tutum.co/elysianempire/ethereum-miner .
+# Delete all containers
+# docker rm --force `docker ps -qa`
 ethereum-data:
   container_name: ethereum-data
   image: tutum.co/elysianempire/ethereum-miner
