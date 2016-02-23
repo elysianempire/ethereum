@@ -1,18 +1,19 @@
 # To build the image, use this command
-# docker build --build-arg PASSWORD=ethereum -t elysianempire/ethereum-miner .
+# docker build --build-arg PASSWORD=ethereum -t elysianempire/ethereum:1.0 .
 # Delete all containers
 # docker rm --force `docker ps -qa`
 ethereum-data:
   container_name: ethereum-data
-  image: elysianempire/ethereum
+  image: elysianempire/ethereum:1.0
   volumes:
     - /home/ethereum/
-ethereum-miner:
-  container_name: ethereum-miner
-  image: elysianempire/ethereum
+ethereum:
+  container_name: ethereum
+  image: elysianempire/ethereum:1.0
   volumes_from:
     - ethereum-data
   ports:
     - "30303:30303"
     - "8545:8545"
-  command: geth --rpc --rpcaddr "0.0.0.0" --mine
+#  command: geth --rpc --rpcaddr "0.0.0.0" --mine
+  command: geth --rpc --rpcaddr "0.0.0.0"
