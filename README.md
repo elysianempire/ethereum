@@ -1,6 +1,6 @@
 # Installation
 
-To quickly get a node running, copy the docker-compose.yml file and run
+To quickly get a node running, clone this repo and run:
 
 ```
 docker-compose up -d
