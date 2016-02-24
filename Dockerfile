@@ -18,9 +18,6 @@ EXPOSE 8545
 EXPOSE 30303
 
 ENV HOME /home/ethereum/
-# Not working till Docker Hub is on 1.9
-#ARG PASSWORD ethereum
-ENV PASSWORD ethereum
 
 WORKDIR ${HOME}
 
@@ -29,9 +26,3 @@ RUN groupadd -r ethereum \
 	&& chown -R ethereum ${HOME}
 
 USER ethereum
-
-# This is suppose to work
-#RUN geth --password <(echo $PASSWORD) account new
-RUN echo $PASSWORD > .passwd \
-	&& geth --password .passwd account new \
-	&& rm .passwd
