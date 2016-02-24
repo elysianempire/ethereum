@@ -1,16 +1,14 @@
 ethereum-data:
   container_name: ethereum-data
-  image: elysianempire/ethereum:1.0
+  image: elysianempire/ethereum
   volumes:
     - /home/ethereum/
 ethereum:
   container_name: ethereum
-  image: elysianempire/ethereum:1.0
+  image: elysianempire/ethereum
   volumes_from:
     - ethereum-data
   ports:
     - "30303:30303"
     - "8545:8545"
-# To mine:
-# command: geth --rpc --rpcaddr "0.0.0.0" --mine
   command: geth --rpc --rpcaddr "0.0.0.0"
